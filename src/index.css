@@ -1,11 +1,11 @@
 :root {
-  --theme: #2a9d8f;
-  --theme2: #e9c46a;
-  --theme3: #f4a261;
-  --theme4: #e76f51;
+  --theme: #24a9df;
+	--theme2: #1b75ba;
+	--theme3: #0055a5;
+	--theme4: #800000;
+	--theme-light: #24a9df;
+	--theme-dark: #050729;
 
-  --theme-light: #7eddd2;
-  --theme-dark: #1e7167;
 
   --white: #fdfffc;
   --black: #264653;
