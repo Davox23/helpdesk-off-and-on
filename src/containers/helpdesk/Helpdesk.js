@@ -9,6 +9,9 @@ import { STAGES, DAY_LENGTH } from "../../shared/config";
 import { IssueTray } from "../../components";
 
 export const Helpdesk = (props) => {
+
+
+
   const {
     skills,
     charisma,
@@ -25,36 +28,63 @@ export const Helpdesk = (props) => {
     onEndDay,
   } = props;
 
-  useOpenTicket();
-  const options = useOptions(selectedTicket?.issueType);
+  // Ticket queue state
+  const [usedTicketIds, setUsedTicketIds] = React.useState([]);
+  const [queue, setQueue] = React.useState([]);
+  // Removed timeLeft and gameEnded state
 
+  // Load all tickets
+  const { TICKETS } = require("../../store/data/tickets.js");
+
+  // Add a new ticket every 5 seconds or after completion
   useEffect(() => {
-    const day = setTimeout(() => {
-      onFailAllOpen();
-      onEndDay();
-    }, DAY_LENGTH);
-    return () => clearTimeout(day);
-  }, [onFailAllOpen, onEndDay]);
+    if (usedTicketIds.length >= TICKETS.length) return;
+    const interval = setInterval(() => {
+      addNextTicket();
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [usedTicketIds]);
 
+  // Removed game end and timer logic
+
+  // Add next unused ticket to queue
+  const addNextTicket = () => {
+    if (usedTicketIds.length >= TICKETS.length) return;
+    const unused = TICKETS.filter((t) => !usedTicketIds.includes(t.id));
+    if (unused.length === 0) return;
+    const next = unused[0];
+    setQueue((q) => [...q, next]);
+    setUsedTicketIds((ids) => [...ids, next.id]);
+  };
+
+  // When a ticket is completed, add next ticket immediately
+  useEffect(() => {
+    if (queue.length === 0 && usedTicketIds.length < TICKETS.length) {
+      addNextTicket();
+    }
+  }, [queue, usedTicketIds]);
+
+  // Option buttons logic
   let optionBtns = null;
   if (selectedTicket) {
     const skill = skills[selectedTicket.issueType];
-
     optionBtns = (
       <div className={css.OptionBtns}>
-        {options.map((opt, index) => (
+        {selectedTicket.answers.map((opt, index) => (
           <button
             key={index}
             onClick={() => {
-              if (skill > opt.difficulty) {
+              if (opt.correct && skill > 0) {
                 onAddExperience(selectedTicket.experience);
                 onCloseTicket(selectedTicket);
+                setQueue((q) => q.filter((t) => t.id !== selectedTicket.id));
               } else if (Math.floor(Math.random() * 100) < chanceDisaster) {
                 onDisaster(selectedTicket);
               } else {
                 const halfExp = Math.floor(selectedTicket.experience / 2);
                 onAddExperience(halfExp);
                 onFailTicket(selectedTicket, charisma);
+                setQueue((q) => q.filter((t) => t.id !== selectedTicket.id));
               }
             }}
           >
@@ -65,10 +95,11 @@ export const Helpdesk = (props) => {
     );
   }
 
+  // Render
   return (
     <>
       <IssueTray
-        tickets={openTickets}
+        tickets={queue}
         isEnabled
         selectedTicket={selectedTicket}
         onClick={onSelectTicket}
