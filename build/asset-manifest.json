@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/helpdesk-off-and-on/static/css/main.c9b04606.css",
+    "main.js": "/helpdesk-off-and-on/static/js/main.531a858d.js",
+    "static/js/422.9cd4e4f4.chunk.js": "/helpdesk-off-and-on/static/js/422.9cd4e4f4.chunk.js",
+    "service-worker.js": "/helpdesk-off-and-on/service-worker.js",
+    "index.html": "/helpdesk-off-and-on/index.html",
+    "main.c9b04606.css.map": "/helpdesk-off-and-on/static/css/main.c9b04606.css.map",
+    "main.531a858d.js.map": "/helpdesk-off-and-on/static/js/main.531a858d.js.map",
+    "422.9cd4e4f4.chunk.js.map": "/helpdesk-off-and-on/static/js/422.9cd4e4f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9b04606.css",
+    "static/js/main.531a858d.js"
+  ]
+}
