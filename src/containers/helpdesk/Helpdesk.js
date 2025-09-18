@@ -26,9 +26,6 @@ export const Helpdesk = (props) => {
     onDisaster,
     onFailAllOpen,
     onEndDay,
-    failedTickets,
-    closedTickets,
-    yearData,
   } = props;
 
   // Ticket queue state
@@ -78,11 +75,12 @@ export const Helpdesk = (props) => {
             key={index}
             onClick={() => {
               if (opt.correct) {
-                onAddExperience(3);
+                onAddExperience(selectedTicket.experience);
                 onCloseTicket(selectedTicket);
                 setQueue((q) => q.filter((t) => t.id !== selectedTicket.id));
               } else {
-                onAddExperience(-1);
+                const halfExp = Math.floor(selectedTicket.experience / 2);
+                onAddExperience(halfExp);
                 onFailTicket(selectedTicket, charisma);
                 setQueue((q) => q.filter((t) => t.id !== selectedTicket.id));
               }
@@ -98,11 +96,6 @@ export const Helpdesk = (props) => {
   // Render
   return (
     <>
-      <section className={css.StatusBar}>
-        <span>Score: {yearData?.experience ?? 0}</span>
-        <span>Successful Tickets: {closedTickets?.length ?? 0}</span>
-        <span>Failed Tickets: {failedTickets?.length ?? 0}</span>
-      </section>
       <IssueTray
         tickets={queue}
         isEnabled
@@ -157,9 +150,6 @@ export const mapStateToProps = (state) => {
     openTickets: state.game.openTickets,
     selectedTicket: state.game.selectedTicket,
     message: state.game.message,
-    failedTickets: state.game.failedTickets,
-    closedTickets: state.game.closedTickets,
-    yearData: state.game.yearData,
   };
 };
 

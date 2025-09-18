@@ -28,10 +28,10 @@ const closeTicket = (state, action) => {
 
   const selectedTicket =
     state.selectedTicket.id === ticket.id ? null : state.selectedTicket;
-  const message = `Correct! You gained 3 points.`;
+  const message = `Success! You gained ${ticket.experience} experience points.`;
 
   const yearData = updateObject(state.yearData, {
-    experience: state.yearData.experience + 3,
+    experience: state.yearData.experience + ticket.experience,
     closedTickets: state.yearData.closedTickets + 1,
   });
   return updateObject(state, {
@@ -58,9 +58,10 @@ const failTicket = (state, action) => {
   // Patience logic removed. Always fail ticket and award half experience.
   const openTickets = state.openTickets.filter((t) => t.id !== action.ticket.id);
   const failedTickets = [...state.failedTickets, action.ticket];
-  const message = `Incorrect! You lost 1 point.`;
+  const halfExp = Math.floor(action.ticket.experience / 2);
+  const message = `Failed to solve ${action.ticket.issueType} issue. You gained ${halfExp} experience points. ${action.ticket.customer} lost patience.`;
   const yearData = updateObject(state.yearData, {
-    experience: state.yearData.experience - 1,
+    experience: state.yearData.experience + halfExp,
     failedTickets: state.yearData.failedTickets + 1,
   });
   return updateObject(state, {
