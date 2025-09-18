@@ -26,6 +26,9 @@ export const Helpdesk = (props) => {
     onDisaster,
     onFailAllOpen,
     onEndDay,
+    failedTickets,
+    closedTickets,
+    yearData,
   } = props;
 
   // Ticket queue state
@@ -74,15 +77,12 @@ export const Helpdesk = (props) => {
           <button
             key={index}
             onClick={() => {
-              if (opt.correct && skill > 0) {
-                onAddExperience(selectedTicket.experience);
+              if (opt.correct) {
+                onAddExperience(3);
                 onCloseTicket(selectedTicket);
                 setQueue((q) => q.filter((t) => t.id !== selectedTicket.id));
-              } else if (Math.floor(Math.random() * 100) < chanceDisaster) {
-                onDisaster(selectedTicket);
               } else {
-                const halfExp = Math.floor(selectedTicket.experience / 2);
-                onAddExperience(halfExp);
+                onAddExperience(-1);
                 onFailTicket(selectedTicket, charisma);
                 setQueue((q) => q.filter((t) => t.id !== selectedTicket.id));
               }
@@ -98,6 +98,11 @@ export const Helpdesk = (props) => {
   // Render
   return (
     <>
+      <section className={css.StatusBar}>
+        <span>Score: {yearData?.experience ?? 0}</span>
+        <span>Successful Tickets: {closedTickets?.length ?? 0}</span>
+        <span>Failed Tickets: {failedTickets?.length ?? 0}</span>
+      </section>
       <IssueTray
         tickets={queue}
         isEnabled
@@ -123,7 +128,7 @@ Helpdesk.propTypes = {
       issueType: PropTypes.string.isRequired,
       issue: PropTypes.string.isRequired,
       experience: PropTypes.number.isRequired,
-      patience: PropTypes.number.isRequired,
+  // patience removed
     })
   ).isRequired,
   selectedTicket: PropTypes.exact({
@@ -132,7 +137,7 @@ Helpdesk.propTypes = {
     issueType: PropTypes.string.isRequired,
     issue: PropTypes.string.isRequired,
     experience: PropTypes.number.isRequired,
-    patience: PropTypes.number.isRequired,
+  // patience removed
   }),
   message: PropTypes.string,
   onAddExperience: PropTypes.func.isRequired,
@@ -152,6 +157,9 @@ export const mapStateToProps = (state) => {
     openTickets: state.game.openTickets,
     selectedTicket: state.game.selectedTicket,
     message: state.game.message,
+    failedTickets: state.game.failedTickets,
+    closedTickets: state.game.closedTickets,
+    yearData: state.game.yearData,
   };
 };
 

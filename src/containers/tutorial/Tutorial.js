@@ -11,26 +11,26 @@ import Text from "./text/Text";
 const ticket1 = {
   id: 1,
   customer: "Roger",
-  issueType: "password",
-  issue: "I've forgotten my password",
+  issueType: "Any Key",
+  issue: "Computer is saying PRESS ANY KEY but customer cannot find the ANY key.",
   experience: 5,
-  patience: 100,
+  // patience removed
 };
 const ticket2 = {
   id: 2,
   customer: "Caroline",
-  issueType: "password",
-  issue: "I've lost my password!",
+  issueType: "Printer",
+  issue: "Printer is smoking!",
   experience: 5,
-  patience: 96,
+  // patience removed
 };
 const ticket3 = {
   id: 2,
   customer: "Mandy",
-  issueType: "password",
-  issue: "My screen is blank. Can you fix it?",
+  issueType: "Computer",
+  issue: "Computer is running slow. Has not been restarted in awhile.",
   experience: 5,
-  patience: 96,
+  // patience removed
 };
 
 export const Tutorial = (props) => {
@@ -77,11 +77,11 @@ export const Tutorial = (props) => {
             ticket={ticket1}
           />
           <button onClick={() => setStep(3)}>
-            Try turning it off and on again
+            ANY key is in upper left corner of keyboard
           </button>
-          <button onClick={() => setStep(3)}>Reset Password</button>
-          <button onClick={() => setStep(3)}>Reset Account</button>
-          <button onClick={() => setStep(3)}>Use Admin Powers</button>
+          <button onClick={() => setStep(3)}>ANY key is in upper right corner of keyboard</button>
+          <button onClick={() => setStep(3)}>ANY key is in the middle of keyboard</button>
+          <button onClick={() => setStep(3)}>ANY key is actually the SPACEBAR</button>
         </>
       );
       break;
@@ -118,10 +118,10 @@ export const Tutorial = (props) => {
       };
       render = (
         <>
-          <button onClick={toStep6}>Try turning it off and on again</button>
-          <button onClick={toStep6}>Reset Password</button>
-          <button onClick={toStep6}>Reset Account</button>
-          <button onClick={toStep6}>Use Admin Powers</button>
+          <button onClick={toStep6}>Get Marshmellows</button>
+          <button onClick={toStep6}>Tell the printer to stop smoking</button>
+          <button onClick={toStep6}>Call Smokey The Bear</button>
+          <button onClick={toStep6}>Ignore Ticket. Fire will stop.</button>
         </>
       );
       break;
@@ -156,11 +156,11 @@ export const Tutorial = (props) => {
       render = (
         <>
           <button onClick={() => setStep(9)}>
-            Try turning it off and on again
+            Unplug the printer
           </button>
-          <button onClick={() => setStep(9)}>Reset Password</button>
-          <button onClick={() => setStep(9)}>Reset Account</button>
-          <button onClick={() => setStep(9)}>Use Admin Powers</button>
+          <button onClick={() => setStep(9)}>Remove the printer from power</button>
+          <button onClick={() => setStep(9)}>Make sure printer cannot get electricity</button>
+          <button onClick={() => setStep(9)}>Get a bucket of water</button>
         </>
       );
       break;
@@ -188,11 +188,11 @@ export const Tutorial = (props) => {
       render = (
         <>
           <button onClick={() => setStep(12)}>
-            Try turning it off and on again
+            Replace the computer
           </button>
-          <button onClick={() => setStep(12)}>Open Up Machine</button>
-          <button onClick={() => setStep(12)}>Fix Wiring</button>
-          <button onClick={() => setStep(12)}>Hit It With A Wrench</button>
+          <button onClick={() => setStep(12)}>Do not restart the computer</button>
+          <button onClick={() => setStep(12)}>Replace batteries on the mouse</button>
+          <button onClick={() => setStep(12)}>Restart the monitor</button>
         </>
       );
       break;

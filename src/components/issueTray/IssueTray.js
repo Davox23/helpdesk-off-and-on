@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import css from "./IssueTray.module.css";
 import { Card } from "../card/Card";
 
@@ -31,7 +30,6 @@ IssueTray.propTypes = {
       issueType: PropTypes.string.isRequired,
       issue: PropTypes.string.isRequired,
       experience: PropTypes.number.isRequired,
-      patience: PropTypes.number.isRequired,
     })
   ).isRequired,
   selectedTicket: PropTypes.exact({
@@ -40,7 +38,6 @@ IssueTray.propTypes = {
     issueType: PropTypes.string.isRequired,
     issue: PropTypes.string.isRequired,
     experience: PropTypes.number.isRequired,
-    patience: PropTypes.number.isRequired,
   }),
   isEnabled: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,

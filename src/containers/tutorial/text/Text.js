@@ -19,8 +19,8 @@ const Text = (props) => {
         be done.
       </p>
     );
-  } else if (step === 0 && manager === "Matt") {
-    return <p>Hmm disappointing. Hurry up! I haven't got all day.</p>;
+  } else if (step === 0 && manager === "Robert") {
+    return <p>You are the one Ashley was bragging about??? Hurry up and start the training! I haven't got all day. My soap opera is about to start. Gary is back after being gone for 3 seasons!</p>;
   } else if (step === 1 && manager === "Lukasz") {
     return (
       <>
@@ -38,8 +38,8 @@ const Text = (props) => {
         is in the world of IT. Select them, would you?
       </p>
     );
-  } else if (step === 1 && manager === "Matt") {
-    return <p>Some idiot has broken something. Select them.</p>;
+  } else if (step === 1 && manager === "Robert") {
+    return <p>Roger again with this issue?</p>;
   } else if (step === 2 && manager === "Lukasz") {
     return (
       <p>
@@ -56,17 +56,14 @@ const Text = (props) => {
         {username}!
       </p>
     );
-  } else if (step === 2 && manager === "Matt") {
+  } else if (step === 2 && manager === "Robert") {
     return (
-      <p>Ha! They've messed up their {ticket.issueType}. Fix it, if you can.</p>
+      <p>Ha! Love the Any Key issue! Fix it, if you can. Just like I hope Gary will later on my soap opera...</p>
     );
   } else if (step === 3 && manager === "Lukasz") {
     return (
       <p>
-        Congratulations! You've successfully helped this customer. You've earned{" "}
-        {ticket.experience} experience from this helpdesk issue. When you
-        achieve enough experience you'll level up. This will increase your
-        skills and even unlock new skills.
+        Congratulations! You've successfully helped this customer. You've earned 3 points!
       </p>
     );
   } else if (step === 3 && manager === "Alice") {
@@ -78,11 +75,11 @@ const Text = (props) => {
         skills!
       </p>
     );
-  } else if (step === 3 && manager === "Matt") {
+  } else if (step === 3 && manager === "Robert") {
     return (
       <p>
         You've actually managed this simple task. I didn't think you had it in
-        you. Take those {ticket.experience} experience points. It's more than
+        you. Take these 3 points. It's more than
         you deserve. Only I am allowed the big points.
       </p>
     );
@@ -100,14 +97,13 @@ const Text = (props) => {
         for you. Select them to find out what's going on.
       </p>
     );
-  } else if (step === 4 && manager === "Matt") {
-    return <p>Here's another idiot. See what they want.</p>;
+  } else if (step === 4 && manager === "Robert") {
+    return <p>Here's another fun one. Lets see what they want.</p>;
   } else if (step === 6 && manager === "Lukasz") {
     return (
       <p>
         Failed to solve {ticket.issueType} issue! Don't worry about that. It
         happens a lot when you're new. Failure is a good opportunity to learn.
-        This time you gained {halfExp} experience.
       </p>
     );
   } else if (step === 6 && manager === "Alice") {
@@ -115,23 +111,19 @@ const Text = (props) => {
       <p>
         Tsk! You've failed with this {ticket.issueType}. No matter. I don't even
         know what's going on. Pick yourself up by your bootstraps and try again.
-        You did gain {halfExp} experience after all.
       </p>
     );
-  } else if (step === 6 && manager === "Matt") {
+  } else if (step === 6 && manager === "Robert") {
     return (
       <p>
-        You failure! Why did they even hire you? Whatever. I'm stuck with you
-        for now. Try again. You didn't get {halfExp} for laying about.
+        Sooo that will not work. Ummmm. Yeah...SMH. Such a Gary move...
       </p>
     );
   } else if (step === 7 && manager === "Lukasz") {
     return (
       <>
         <p>
-          Fortunately this customer has {ticket.patience}% patience. Each time
-          you fail their patience will decrease. When it reaches 0 they'll
-          leave.
+          Fortunately this customer is very patient. Each time you fail, they'll wait for you to try again.
         </p>
         <p>Select the ticket to try again.</p>
       </>
@@ -140,20 +132,16 @@ const Text = (props) => {
     return (
       <>
         <p>
-          They've got {ticket.patience}% patience anyway, so they can wait. Each
-          time you fumble they'll lose patience. When it reaches 0, they'll
-          bugger right off.
+          They've got plenty of patience, so they can wait. Select the ticket to give it another go.
         </p>
         <p>Select the ticket to give it another go.</p>
       </>
     );
-  } else if (step === 7 && manager === "Matt") {
+  } else if (step === 7 && manager === "Robert") {
     return (
       <>
         <p>
-          For some reason they've got {ticket.patience}% patience, so they're
-          going to hang about cluttering up the place. They'll lose patience
-          every time you mess up. If it reaches 0, they'll finally leave.
+          For some reason they're still hanging about cluttering up the place. Go again and don't screw it up this time.
         </p>
         <p>Go again and don't screw it up this time.</p>
       </>
@@ -178,15 +166,15 @@ const Text = (props) => {
         <p>I've got time for one more. Let's give it a go.</p>
       </>
     );
-  } else if (step === 9 && manager === "Matt") {
+  } else if (step === 9 && manager === "Robert") {
     return (
       <>
         <p>
-          You've done it, at last. Take the {ticket.experience} points. I know
+          You've done it, at last. Take the 3 points. I know
           you don't deserve them.
         </p>
         <p>
-          I'll stay here one more time. Only because your failure amuses me.
+          I'll stay here one more time. Since my soap opera has not started yet.
         </p>
       </>
     );
@@ -210,11 +198,10 @@ const Text = (props) => {
         </p>
       </>
     );
-  } else if (step === 12 && manager === "Matt") {
+  } else if (step === 12 && manager === "Robert") {
     return (
       <>
-        <p>Idiot! You've destroyed the hardware!</p>
-        <p>You have a contemptible {chanceDisaster}% chance of disaster.</p>
+        <p>Wow...just wow..simple restart was all that is needed...when in doubt...restart!</p>
       </>
     );
   } else if (step === 13 && manager === "Lukasz") {
@@ -231,8 +218,8 @@ const Text = (props) => {
         Off you go! Tappy tappy click click!
       </p>
     );
-  } else if (step === 13 && manager === "Matt") {
-    return <p>I'm done. Off you go. Try not to screw it up.</p>;
+  } else if (step === 13 && manager === "Robert") {
+    return <p>Bye now! Show is starting! Gary might be the father!! Get to work!</p>;
   }
 
   return null;
@@ -247,7 +234,7 @@ Text.propTypes = {
     customer: PropTypes.string.isRequired,
     issueType: PropTypes.string.isRequired,
     experience: PropTypes.number.isRequired,
-    patience: PropTypes.number.isRequired,
+  // patience removed
   }).isRequired,
 };
 

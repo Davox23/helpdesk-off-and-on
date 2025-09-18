@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { openRandomTicket } from "../store/actions";
 import { getTimeBetweenTickets } from "../shared/config";
-
 const getRandomTime = () => Math.floor(Math.random() * 5000) + 1000;
 
 export const useOpenTicket = () => {

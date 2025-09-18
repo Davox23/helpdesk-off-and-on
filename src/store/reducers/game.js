@@ -28,10 +28,10 @@ const closeTicket = (state, action) => {
 
   const selectedTicket =
     state.selectedTicket.id === ticket.id ? null : state.selectedTicket;
-  const message = `Success! You gained ${ticket.experience} experience points.`;
+  const message = `Correct! You gained 3 points.`;
 
   const yearData = updateObject(state.yearData, {
-    experience: state.yearData.experience + ticket.experience,
+    experience: state.yearData.experience + 3,
     closedTickets: state.yearData.closedTickets + 1,
   });
   return updateObject(state, {
@@ -55,43 +55,21 @@ const openTicket = (state, action) => {
 };
 
 const failTicket = (state, action) => {
-  const patience = action.ticket.patience - (100 - action.charisma);
-  const ticket = updateObject(action.ticket, { patience });
-  if (patience > 0) {
-    const openTickets = state.openTickets.map((t) => {
-      if (t.id === ticket.id) {
-        return ticket;
-      } else {
-        return t;
-      }
-    });
-    const halfExp = Math.floor(ticket.experience / 2);
-    const message = `Failed to solve ${ticket.issueType} issue. You gained ${halfExp} experience points. ${ticket.customer} lost patience.`;
-    const yearData = updateObject(state.yearData, {
-      experience: state.yearData.experience + halfExp,
-    });
-    return updateObject(state, {
-      openTickets,
-      selectedTicket: null,
-      message,
-      yearData,
-    });
-  } else {
-    const openTickets = state.openTickets.filter((t) => t.id !== ticket.id);
-    const failedTickets = [...state.closedTickets, ticket];
-    const message = `Failed to solve ${ticket.customer}'s issue. They ran out of patience and left.`;
-
-    const yearData = updateObject(state.yearData, {
-      failedTickets: state.yearData.failedTickets + 1,
-    });
-    return updateObject(state, {
-      openTickets,
-      failedTickets,
-      selectedTicket: null,
-      message,
-      yearData,
-    });
-  }
+  // Patience logic removed. Always fail ticket and award half experience.
+  const openTickets = state.openTickets.filter((t) => t.id !== action.ticket.id);
+  const failedTickets = [...state.failedTickets, action.ticket];
+  const message = `Incorrect! You lost 1 point.`;
+  const yearData = updateObject(state.yearData, {
+    experience: state.yearData.experience - 1,
+    failedTickets: state.yearData.failedTickets + 1,
+  });
+  return updateObject(state, {
+    openTickets,
+    failedTickets,
+    selectedTicket: null,
+    message,
+    yearData,
+  });
 };
 
 const disaster = (state, action) => {

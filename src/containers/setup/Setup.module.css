@@ -1,6 +1,16 @@
+.InputSmall {
+  padding: 0.3rem 0.6rem;
+  width: 8rem;
+  font-size: 1rem;
+}
 .Setup {
   margin-top: 1rem;
   padding: 1rem;
+}
+
+.RightAlignHeading {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .Speaker {

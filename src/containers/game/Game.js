@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
 import { STAGES } from "../../shared/config";
 import Setup from "../setup/Setup";
 import Tutorial from "../tutorial/Tutorial";
@@ -9,7 +8,6 @@ import Review from "../review/Review";
 
 const Game = () => {
   const stage = useSelector((state) => state.game.stage);
-
   switch (stage) {
     case STAGES.setup:
       return <Setup />;

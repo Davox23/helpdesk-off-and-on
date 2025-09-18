@@ -1,6 +1,51 @@
 .Start {
-  margin-top: 1rem;
-  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.CenteredContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.StartButton {
+  margin: 32px 0;
+  padding: 20px 40px;
+  font-size: 2rem;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.StartButton:hover {
+  background: #1565c0;
+}
+
+.LoadButton {
+  margin: 10px 0;
+  padding: 12px 32px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: #e0e0e0;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.LoadButton:hover {
+  background: #bdbdbd;
 }
 
 .Controls {
@@ -8,6 +53,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.Title {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 @media (min-width: 500px) {

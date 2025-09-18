@@ -1,3 +1,4 @@
+export { snackBreakExperience } from "./game";
 export {
   resetGame,
   loadGame,

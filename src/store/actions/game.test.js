@@ -47,13 +47,13 @@ describe("game actions", () => {
     const issueType = "test";
     const issue = "testing";
     const experience = 10;
-    const patience = 50;
+  // patience removed
     const action = actions.openTicket(
       customer,
       issueType,
       issue,
       experience,
-      patience
+  // patience removed
     );
 
     expect(action.type).toEqual(actionTypes.OPEN_TICKET);
@@ -62,7 +62,7 @@ describe("game actions", () => {
       issueType,
       issue,
       experience,
-      patience,
+  // patience removed
     });
   });
 

@@ -57,7 +57,7 @@ describe("<Helpdesk />", () => {
         issueType: "test",
         issue: "Test",
         experience: 1,
-        patience: 1,
+  // patience removed
       },
     ];
     const selectedTicket = null;

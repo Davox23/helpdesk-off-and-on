@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/helpdesk-off-and-on/static/css/main.c61fc211.css",
-    "main.js": "/helpdesk-off-and-on/static/js/main.531a858d.js",
+    "main.css": "/helpdesk-off-and-on/static/css/main.1113b029.css",
+    "main.js": "/helpdesk-off-and-on/static/js/main.f2637820.js",
     "static/js/422.9cd4e4f4.chunk.js": "/helpdesk-off-and-on/static/js/422.9cd4e4f4.chunk.js",
     "service-worker.js": "/helpdesk-off-and-on/service-worker.js",
     "index.html": "/helpdesk-off-and-on/index.html",
-    "main.c61fc211.css.map": "/helpdesk-off-and-on/static/css/main.c61fc211.css.map",
-    "main.531a858d.js.map": "/helpdesk-off-and-on/static/js/main.531a858d.js.map",
+    "main.1113b029.css.map": "/helpdesk-off-and-on/static/css/main.1113b029.css.map",
+    "main.f2637820.js.map": "/helpdesk-off-and-on/static/js/main.f2637820.js.map",
     "422.9cd4e4f4.chunk.js.map": "/helpdesk-off-and-on/static/js/422.9cd4e4f4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c61fc211.css",
-    "static/js/main.531a858d.js"
+    "static/css/main.1113b029.css",
+    "static/js/main.f2637820.js"
   ]
 }

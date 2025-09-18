@@ -2,6 +2,13 @@ import * as actionTypes from "./actionTypes";
 import { getRandomArrayItem, weightedRandom } from "../../shared/utilities";
 import { NAMES, ISSUES } from "../data";
 
+export const snackBreakExperience = (amount) => {
+  return {
+    type: actionTypes.SNACK_BREAK_EXPERIENCE,
+    amount,
+  };
+};
+
 export const resetGame = () => {
   return {
     type: actionTypes.RESET_GAME,
@@ -41,12 +48,11 @@ export const openTicket = (
   customer,
   issueType,
   issue,
-  experience,
-  patience
+  experience
 ) => {
   return {
     type: actionTypes.OPEN_TICKET,
-    ticket: { customer, issueType, issue, experience, patience },
+    ticket: { customer, issueType, issue, experience },
   };
 };
 
@@ -60,10 +66,8 @@ export const openRandomTicket = () => {
     const availableTypes = types.filter((t) => availableSkills.includes(t));
     const issueType = getRandomArrayItem(availableTypes);
     const issue = getRandomArrayItem(ISSUES[issueType]);
-    const experience = weightedRandom(10 * 2, 2);
-    const patience = weightedRandom(99, 4);
-
-    dispatch(openTicket(customer, issueType, issue, experience, patience));
+  const experience = weightedRandom(10 * 2, 2);
+  dispatch(openTicket(customer, issueType, issue, experience));
   };
 };
 

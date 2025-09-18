@@ -64,25 +64,11 @@ export const getTimeBetweenTickets = (level, manager) => {
 };
 
 export const MANAGERS = {
-  Lukasz: {
-    difficulty: "easy",
-    charismaDie: 4,
-    skillMax: 20,
-    skillDie: 4,
-    timeModifier: 1,
-  },
-  Alice: {
-    difficulty: "medium",
-    charismaDie: 2,
-    skillMax: 20,
-    skillDie: 2,
-    timeModifier: 2,
-  },
-  Matt: {
-    difficulty: "hard",
+  Robert: {
+    difficulty: "Tier 1 Helpdesk Technician",
     charismaDie: 1,
     skillMax: 10,
     skillDie: 2,
-    timeModifier: 4,
+    timeModifier: 2,
   },
 };

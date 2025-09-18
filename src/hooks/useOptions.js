@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-
 import { weightedRandom } from "../shared/utilities";
 import { OPTIONS } from "../store/data/index";
 

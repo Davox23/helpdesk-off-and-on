@@ -8,8 +8,8 @@ const App = () => {
 
   return (
     <>
-      <Menu />
-      <main className={css.Main}>
+      {!isStart && <Menu />}
+      <main className={isStart ? css.MainFull : css.Main}>
         {isStart ? <Start onStart={() => setIsStart(false)} /> : <Game />}
       </main>
     </>

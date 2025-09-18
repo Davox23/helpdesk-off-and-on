@@ -1,4 +1,4 @@
-# Helpdesk Simulator 2: Turn It Off and On Again
+# ITI Technician Helpdesk Simulator: Turn It Off and On Again
 
 The hotly anticipated sequel to the classic text-based adventure
 game. Play as a new, bright-eyed IT helpdesk technician at

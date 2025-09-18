@@ -2,6 +2,11 @@
   width: 100%;
 }
 
+.MainFull {
+  width: 100vw;
+  margin-left: 0;
+}
+
 @media screen and (max-width: 900px) and (min-width: 500px) {
   .Main {
     margin-left: 20%;

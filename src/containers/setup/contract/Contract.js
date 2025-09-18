@@ -16,26 +16,31 @@ export const Contract = (props) => {
     difficulty: managers[0] || "",
   };
   const validationSchema = yup.object().shape({
-    name: yup.string("That's not a name!"),
+    name: yup.string().required("Name is required!"),
     difficulty: yup.string().required("Choose a manager!"),
   });
   const onSubmit = (values) => {
     const name = values.name || "Mikey";
     onCreatePlayer(name, values.difficulty);
-    onSuccess();
+    // Start Training section
+    if (typeof onSuccess === 'function' && typeof props.onSetStage === 'function') {
+      props.onSetStage(props.STAGES.tutorial);
+    } else {
+      onSuccess();
+    }
   };
 
   return (
     <Formik {...{ initialValues, validationSchema, onSubmit }}>
       {({ errors, touched }) => (
         <Form className={css.Form}>
-          <h3>Contract</h3>
+          {/* Contract heading hidden */}
           <div className={css.InputContainer}>
             <label className={css.Label} htmlFor="name">
               Name:
             </label>
             <Field
-              className={css.Input}
+              className={css.InputSmall}
               type="input"
               id="name"
               name="name"
@@ -45,24 +50,11 @@ export const Contract = (props) => {
               <div className={css.ValidationError}>{errors.name}</div>
             ) : null}
           </div>
-          <div className={css.InputContainer}>
-            <label className={css.Label} htmlFor="difficulty">
-              Difficulty:
-            </label>
-            <div className={css.Difficulty}>
-              {managers.map((man) => (
-                <React.Fragment key={man}>
-                  <Field type="radio" name="difficulty" id={man} value={man} />
-                  <label htmlFor={man}>{MANAGERS[man]?.difficulty}</label>
-                </React.Fragment>
-              ))}
-            </div>
-            {errors.difficulty && touched.difficulty ? (
-              <div className={css.ValidationError}>{errors.difficulty}</div>
-            ) : null}
-          </div>
+                <div className={css.InputContainer}>
+                  {/* Difficulty selection hidden */}
+                </div>
           <div className={css.Controls}>
-            <button type="submit">Sign Contract</button>
+            <button type="submit">Begin Helpdesk Ticket Simulation</button>
           </div>
         </Form>
       )}

@@ -41,6 +41,13 @@
   flex-direction: column;
 }
 
+.TotalTicketScore {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
 .Menu ul li {
   padding: 0.5em 1em 0.5em 3em;
   color: var(--white);
